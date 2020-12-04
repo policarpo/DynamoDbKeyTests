@@ -28,6 +28,23 @@ namespace netCoreConsole
 
         }
 
+        public bool IsActive
+        {
+            get {
+                var startDate = DateTime.ParseExact(StartDate, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                return startDate<= DateTime.Today && (EndDate == null || DateTime.Today <= EndDate); 
+            }
+        }
+
+        public bool IsUpcoming
+        {
+            get
+            {
+                var startDate = DateTime.ParseExact(StartDate, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                return startDate > DateTime.Today;
+            }
+        }
+
         public PurchasePriceFixedTable(int productId, int supplierId, string priceType)
         {
             ProductId = productId;
