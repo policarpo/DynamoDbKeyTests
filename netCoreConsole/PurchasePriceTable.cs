@@ -53,24 +53,4 @@ namespace netCoreConsole
             Id = $"P#{ProductId}_S#{SupplierId}_{PriceType}";
         }
     }
-
-    [DynamoDBTable("purchase_prices_fixed_composite_key")]
-    public class PurchasePriceDynamicTable
-    {
-        [DynamoDBHashKey]
-        public string PartitionKey;
-        [DynamoDBRangeKey]
-        public string SortKey;
-        [DynamoDBProperty]
-        public DateTime? EndDate;
-        [DynamoDBProperty]
-        public DateTime StartDate;
-        [DynamoDBProperty]
-        public string ProductId;
-        [DynamoDBProperty]
-        public string SupplierId;
-        [DynamoDBProperty]
-        public string PriceType;
-
-    }
 }
